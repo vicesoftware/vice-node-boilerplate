@@ -18,10 +18,7 @@ if (!cert){
 console.log(key);
 console.log(cert);
 
-const server = https.createServer({key, cert}, (req, res) => {
-  res.write('hi') // Responds with "Not Implemented"
-  res.end();
-}).listen(port);
+const server = https.createServer({key, cert}, app).listen(port);
 
 process.on('unhandledRejection', (reason, p) =>
   logger.error('Unhandled Rejection at: Promise ', p, reason)
