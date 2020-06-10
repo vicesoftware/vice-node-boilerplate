@@ -1,0 +1,46 @@
+version: "2.4"
+services:  
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: vice_node_boilerplate
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: topsecret
+    healthcheck:
+      test: nc -z localhost 5432 || exit -1
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 2s
+  # api:
+  #   image: vice/node-boilerplate-api:1.0
+  #   build: 
+  #     context: .
+  #     dockerfile: src/Dockerfile-dev
+  #   volumes:
+  #     - $HOME/.nuget/packages:/root/.nuget/fallbackpackages
+  #   environment:
+  #     RabbitConnectionString: host=dev-rabbitmq.bisk.com;username=app-user;password=MQ19User71
+  #     NUGET_PACKAGES: /root/.nuget/fallbackpackages
+  #     NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+  #   command: dotnet watch --project API.ServiceLayer/API.ServiceLayer.csproj run
+  #   ports:
+  #     - 6000:6000
+  #   depends_on:
+  #     program-application-db:
+  #       condition: service_healthy
+  #     # rabbitmq:
+  #     #   condition: service_healthy
+  #   healthcheck:
+  #     test: curl --fail localhost:6000/HealthCheck/IsAlive
+  #     interval: 5s
+  #     timeout: 5s
+  #     retries: 5
+  #     start_period: 2s
+
+volumes:
+  pg-data:
