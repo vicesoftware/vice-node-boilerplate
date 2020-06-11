@@ -43,3 +43,10 @@ $ feathers help                           # Show all commands
 ## Help
 
 For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
+
+# Notes
+Feathers Call
+- For redirects we can follow instructions here: https://docs.feathersjs.com/api/authentication/oauth.html#redirects
+
+TLDR: `/oauth/github?redirect=dashboar`
+
