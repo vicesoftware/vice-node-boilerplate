@@ -1,6 +1,6 @@
 {
   "host": "localhost",
-  "port": 443,
+  "port": 3000,
   "public": "../public/",
   "paginate": {
     "default": 10,
@@ -32,9 +32,10 @@
       "auth0": {
         "key": "i3nEYN5NgDKM72Qkb11Qi5tiibdVCziB",
         "secret": "lLEBSNfIKTflxuSoQfMJbghdLY47VnkhmCEeq32WiLTjs1-Zg9_UyvA8pN8y-_lX",
-        "subdomain": "vicesoftware"
+        "subdomain": "vicesoftware",
+        "scope": ["openid", "profile"]
       }
     }
   },
-  "postgres": "postgres://postgres:@localhost:5432/vice_node_boilerplate"
+  "postgres": "postgres://pguser:topsecret@localhost:5432/vice_node_boilerplate"
 }

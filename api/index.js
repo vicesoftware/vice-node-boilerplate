@@ -18,7 +18,11 @@ if (!cert){
 console.log(key);
 console.log(cert);
 
-const server = https.createServer({key, cert}, app).listen(port);
+// const server = https.createServer({key, cert}, app).listen(port);
+const server = app.listen(port);
+
+// Call app.setup to initialize all services and SocketIO
+// app.setup(server);
 
 process.on('unhandledRejection', (reason, p) =>
   logger.error('Unhandled Rejection at: Promise ', p, reason)
