@@ -50,3 +50,10 @@ Feathers Call
 
 TLDR: `/oauth/github?redirect=dashboar`
 
+JWKS docs: https://auth0.com/docs/tokens/concepts/jwks
+SPA docs: https://auth0.com/docs/libraries/auth0-spa-js
+
+JWKS Flow
+1. User visits and clicks signin
+1. get redirected directly to auth0
+1. auth0 back to UI with token
