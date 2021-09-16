@@ -1,0 +1,42 @@
+{
+  "host": "localhost",
+  "port": 3000,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "jDvNr+g21bYXuuMOiPzsPP+m0t4=",
+    "authStrategies": [
+      "jwt",
+      "local",
+      "auth0"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "http://vice-node-boilerplate",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "oauth": {
+      "redirect": "/",
+      "auth0": {
+        "key": "i3nEYN5NgDKM72Qkb11Qi5tiibdVCziB",
+        "secret": "lLEBSNfIKTflxuSoQfMJbghdLY47VnkhmCEeq32WiLTjs1-Zg9_UyvA8pN8y-_lX",
+        "subdomain": "vicesoftware",
+        "scope": ["openid", "profile"]
+      }
+    }
+  },
+  "postgres": "postgres://pguser:topsecret@localhost:5432/vice_node_boilerplate"
+}
